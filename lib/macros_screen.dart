@@ -138,15 +138,15 @@ class _MacrosScreenState extends State<MacrosScreen> {
                     Expanded(
                       child: Column(
                         children: [
-                          Text("PROTEIN",style: TextStyle(fontSize:25),),
+                          Text("PROTEIN",style: TextStyle(fontSize:30,fontWeight: FontWeight.bold),),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Text('${(goal == null ? "" : goal[0]['Protein'])}'),
-                              Text(" - "),
-                              Text("${breakfastP + lunchP + dinnerP}"),
-                              Text(" = "),
-                              Text("${int.tryParse(goal == null ? "0" : goal[0]['Protein'])! - (breakfastP + lunchP + dinnerP)}")
+                              Text('${(goal == null ? "" : goal[0]['Protein'])}',style: TextStyle(fontSize: 30),),
+                              Text(" - ",style: TextStyle(fontSize: 30),),
+                              Text("${breakfastP + lunchP + dinnerP}",style: TextStyle(fontSize: 30),),
+                              Text(" = ",style: TextStyle(fontSize: 30),),
+                              Text("${int.tryParse(goal == null ? "0" : goal[0]['Protein'])! - (breakfastP + lunchP + dinnerP)}",style: TextStyle(fontSize: 30),)
 
                             ],
                           ),
@@ -156,15 +156,15 @@ class _MacrosScreenState extends State<MacrosScreen> {
                     Expanded(
                       child: Column(
                         children: [
-                          Text("CARBOHYDRATES",style: TextStyle(fontSize: 25),),
+                          Text("CARBOHYDRATES",style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold),),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Text('${(goal == null ? "" : goal[0]['Carbohydrate'])}'),
-                              Text(" - "),
-                              Text("${breakfastC + lunchC + dinnerC}"),
-                              Text(" = "),
-                              Text("${int.tryParse(goal == null ? "0" : goal[0]['Carbohydrate'])! - (breakfastC + lunchC + dinnerC)}")
+                              Text('${(goal == null ? "" : goal[0]['Carbohydrate'])}',style: TextStyle(fontSize: 30),),
+                              Text(" - ",style: TextStyle(fontSize: 30),),
+                              Text("${breakfastC + lunchC + dinnerC}",style: TextStyle(fontSize: 30),),
+                              Text(" = ",style: TextStyle(fontSize: 30),),
+                              Text("${int.tryParse(goal == null ? "0" : goal[0]['Carbohydrate'])! - (breakfastC + lunchC + dinnerC)}",style: TextStyle(fontSize: 30),)
 
                             ],
                           ),
@@ -174,15 +174,15 @@ class _MacrosScreenState extends State<MacrosScreen> {
                     Expanded(
                       child: Column(
                         children: [
-                          Text("FATS",style: TextStyle(fontSize: 25),),
+                          Text("FATS",style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold),),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Text('${(goal == null ? "" : goal[0]['fat'])}'),
-                              Text(" - "),
-                              Text("${breakfastF + lunchF + dinnerF}"),
-                              Text(" = "),
-                              Text("${int.tryParse(goal == null ? "0" : goal[0]['fat'])! - (breakfastF + lunchF + dinnerF)}")
+                              Text('${(goal == null ? "" : goal[0]['fat'])}',style: TextStyle(fontSize: 30),),
+                              Text(" - ",style: TextStyle(fontSize: 30),),
+                              Text("${breakfastF + lunchF + dinnerF}",style: TextStyle(fontSize: 30),),
+                              Text(" = ",style: TextStyle(fontSize: 30),),
+                              Text("${int.tryParse(goal == null ? "0" : goal[0]['fat'])! - (breakfastF + lunchF + dinnerF)}",style: TextStyle(fontSize: 30),)
 
                             ],
                           ),

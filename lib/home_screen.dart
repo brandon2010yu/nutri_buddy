@@ -145,10 +145,20 @@ class _HomeScreenState extends State<HomeScreen> {
               Expanded(
                 flex:10,
                 child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Expanded(child: Text("Total Calories")),
-                    Expanded(child: Text("Calories consumed")),
-                    Expanded(child: Text("Calories Left")),
+                    Expanded(child: Container(
+                        alignment: Alignment.center,
+                        margin: EdgeInsets.only(right: 12),
+                        child: Text("Total Calories", style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),))),
+                    Expanded(child: Container(
+                      margin: EdgeInsets.only(left: 20),
+                      alignment: Alignment.center,
+                        child: Text("  Calories Consumed", style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),))),
+                    Expanded(child: Container(
+                        alignment: Alignment.center,
+                        margin: EdgeInsets.only(left: 12),
+                        child: Text("Calories Left", style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),))),
                   ],
                 ),
               ),
@@ -157,12 +167,20 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: Row(
                   children: [
                     Expanded(child: Container(
-                        margin: EdgeInsets.only(),
+                        alignment: Alignment.center,
                         child: Text("${(goalObject == null ? "" : goalObject[0]['Calorie'])}",style: TextStyle(fontSize: 30),))),
-                    Expanded(child: Text(" - ", style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),)),
-                    Expanded(child: Text("${breakfastC + lunchC + dinnerC}", style: TextStyle(fontSize: 30),)),
-                    Expanded(child: Text(" = ", style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),)),
-                    Expanded(child: Text("${(goalObject == null ? "" : int.tryParse(goalObject[0]['Calorie'])! - (breakfastC + lunchC + dinnerC))}",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 30),)),
+                    Expanded(child: Container(
+                        alignment: Alignment.center,
+                        child: Text(" - ", style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),))),
+                    Expanded(child: Container(
+                        alignment: Alignment.center,
+                        child: Text("${breakfastC + lunchC + dinnerC}", style: TextStyle(fontSize: 30),))),
+                    Expanded(child: Container(
+                        alignment: Alignment.center,
+                        child: Text(" = ", style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),))),
+                    Expanded(child: Container(
+                        alignment: Alignment.center,
+                        child: Text("${(goalObject == null ? "" : int.tryParse(goalObject[0]['Calorie'])! - (breakfastC + lunchC + dinnerC))}",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 30),))),
                   ],
                 ),
               ),

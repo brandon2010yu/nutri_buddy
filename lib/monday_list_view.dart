@@ -82,12 +82,14 @@ class _MondayListViewState extends State<MondayListView> {
                         mainAxisAlignment: MainAxisAlignment.center,
 
                         children: [
-                          Text("Workout: ",style: TextStyle(fontSize: 20),),
+                          Flexible(child: Text("Workout: ",style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold),)),
 
-                          Container(
-                              margin: EdgeInsets.only(right: 10),
-                              child: Text('${mondayList[index]['Monday']}',
-                                style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),)),
+                          Flexible(
+                            child: Container(
+                                margin: EdgeInsets.only(right: 10),
+                                child: Text('${mondayList[index]['Monday']}',
+                                  style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold),)),
+                          ),
 
 
                         ],

@@ -53,7 +53,7 @@ class _GoalsScreenState extends State<GoalsScreen> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text("Target Calories: "),
+                    Text("Target Calories: ",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
                     Container(
                       width: 200,
                       child: TextField(
@@ -72,9 +72,9 @@ class _GoalsScreenState extends State<GoalsScreen> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text("Target Protein: "),
+                    Text("Target Protein: ",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
                     Container(
-                      width: 200,
+                      width: 210,
                       child: TextField(
                         controller: proteinController,
                         decoration: InputDecoration(
@@ -91,9 +91,9 @@ class _GoalsScreenState extends State<GoalsScreen> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text("Target Carbohydrates: "),
+                    Text("Target Carbohydrates: ",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
                     Container(
-                      width: 150,
+                      width: 145,
                       child: TextField(
                         controller: carbController,
                         decoration: InputDecoration(
@@ -110,9 +110,9 @@ class _GoalsScreenState extends State<GoalsScreen> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text("Target Fats: "),
+                    Text("Target Fats: ",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
                     Container(
-                      width: 210,
+                      width: 235,
                       child: TextField(
                         controller: fatController,
                         decoration: InputDecoration(

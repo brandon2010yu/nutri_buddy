@@ -94,19 +94,30 @@ class _BreakfastListViewState extends State<BreakfastListView> {
                         mainAxisAlignment: MainAxisAlignment.center,
 
                         children: [
-                          Container(
+                          Flexible(
 
-                              child: Text("Name: ",style: TextStyle(fontSize: 20,fontStyle: FontStyle.italic),)),
-                          Container(
-                            margin: EdgeInsets.only(right: 10),
-                              child: Text('${foodList[index]['Name']}',
-                              style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),)),
+                            child: Container(
+                                alignment: Alignment.center,
+                                child: Text("Name: ",style: TextStyle(fontSize: 25,fontStyle: FontStyle.italic,fontWeight: FontWeight.bold),)),
+                          ),
+                          Flexible(
+                            child: Container(
+                                alignment: Alignment.center,
+                              margin: EdgeInsets.only(),
+                                child: Text('${foodList[index]['Name']}',
+                                style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold),)),
+                          ),
 
-                            Text("Calories: ",style: TextStyle(fontSize: 20),),
-                          Container(
-                              child: Text('${foodList[index]['Calorie']}',style: TextStyle(
-                                fontSize: 20,fontWeight: FontWeight.bold
-                              ),))
+                            Flexible(child: Container(
+                                alignment: Alignment.center,
+                                child: Text("Calories: ",style: TextStyle(fontSize: 23, fontWeight: FontWeight.bold, fontStyle: FontStyle.italic),))),
+                          Flexible(
+                            child: Container(
+                                alignment: Alignment.center,
+                                child: Text('${foodList[index]['Calorie']}',style: TextStyle(
+                                  fontSize: 25,fontWeight: FontWeight.bold
+                                ),)),
+                          )
                         ],
                       ),
                     ),

@@ -48,7 +48,7 @@ class _AddBreakfastScreenState extends State<AddBreakfastScreen> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Text("Name of Food: "),
+                            Text("Name of Food: ",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
                             Container(
                               width: 200,
                               child: TextField(
@@ -67,9 +67,9 @@ class _AddBreakfastScreenState extends State<AddBreakfastScreen> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Text("Protein: "),
+                            Text("Protein: ",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
                             Container(
-                              width: 240,
+                              width: 260,
                               child: TextField(
                                 controller: proteinController,
                                 decoration: InputDecoration(
@@ -86,7 +86,7 @@ class _AddBreakfastScreenState extends State<AddBreakfastScreen> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Text("Carbohydrates: "),
+                            Text("Carbohydrates: ",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
                             Container(
                               width: 190,
                               child: TextField(
@@ -105,9 +105,9 @@ class _AddBreakfastScreenState extends State<AddBreakfastScreen> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Text("Fat: "),
+                            Text("Fat: ",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
                             Container(
-                              width: 260,
+                              width: 290,
                               child: TextField(
                                 controller: fatController,
                                 decoration: InputDecoration(
@@ -124,7 +124,7 @@ class _AddBreakfastScreenState extends State<AddBreakfastScreen> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Text("Total calories: "),
+                            Text("Total calories: ",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
                             Container(
                               width: 200,
                               child: TextField(
@@ -143,7 +143,7 @@ class _AddBreakfastScreenState extends State<AddBreakfastScreen> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Text("Weight of food: "),
+                            Text("Weight of food: ",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
                             Container(
                               width: 190,
                               child: TextField(
