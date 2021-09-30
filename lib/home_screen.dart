@@ -166,19 +166,29 @@ class _HomeScreenState extends State<HomeScreen> {
                 flex: 5,
                 child: Row(
                   children: [
-                    Expanded(child: Container(
+                    Expanded(
+                        flex: 25,
+                        child: Container(
                         alignment: Alignment.center,
                         child: Text("${(goalObject == null ? "" : goalObject[0]['Calorie'])}",style: TextStyle(fontSize: 30),))),
-                    Expanded(child: Container(
+                    Expanded(
+                      flex: 10,
+                        child: Container(
                         alignment: Alignment.center,
                         child: Text(" - ", style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),))),
-                    Expanded(child: Container(
+                    Expanded(
+                      flex: 25,
+                        child: Container(
                         alignment: Alignment.center,
                         child: Text("${breakfastC + lunchC + dinnerC}", style: TextStyle(fontSize: 30),))),
-                    Expanded(child: Container(
+                    Expanded(
+                      flex: 10,
+                        child: Container(
                         alignment: Alignment.center,
                         child: Text(" = ", style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),))),
-                    Expanded(child: Container(
+                    Expanded(
+                      flex: 25,
+                        child: Container(
                         alignment: Alignment.center,
                         child: Text("${(goalObject == null ? "" : int.tryParse(goalObject[0]['Calorie'])! - (breakfastC + lunchC + dinnerC))}",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 30),))),
                   ],
