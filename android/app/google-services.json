@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "240380075028",
+    "firebase_url": "https://nutribuddy-d420b-default-rtdb.firebaseio.com",
+    "project_id": "nutribuddy-d420b",
+    "storage_bucket": "nutribuddy-d420b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:240380075028:android:9b61f2f4bfb6cc65a79b01",
+        "android_client_info": {
+          "package_name": "com.example.nutri_buddy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "240380075028-7p8ngpv1c8bucm04nd8jlq03d4d07heb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCPLav0HDbqorDW8ICNXdB1_NR_ZAHpUrA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "240380075028-7p8ngpv1c8bucm04nd8jlq03d4d07heb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
