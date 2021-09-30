@@ -132,7 +132,7 @@ class _FridayListViewState extends State<FridayListView> {
 
                       ),
                       onPressed: (){
-                        FirebaseDatabase.instance.reference().child("fridayyworkout/").remove();
+                        FirebaseDatabase.instance.reference().child("fridayworkout/").remove();
                         fridayList2 = [];
                         fridayList = [];
                         setState(() {
