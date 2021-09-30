@@ -166,25 +166,26 @@ class _AddLunchScreenState extends State<AddLunchScreen> {
                   margin: EdgeInsets.only(bottom:10),
                   child: ElevatedButton(onPressed: (){
                     var timestamp = new DateTime.now().millisecondsSinceEpoch;
-                    FirebaseDatabase.instance.reference().child("lunch/l" + timestamp.toString()).set(
-                        {
-                          "Name": nameController.text,
-                          "Protein": proteinController.text,
-                          "Carbohydrate": carbController.text,
-                          "fat": fatController.text,
-                          "Calorie": calorieController.text,
-                          "Weight": weightController.text,
-                        }).then((value) {
-                      print("Successfully added lunch item");
-                    }).catchError((error){
-                      print("Failed to add. " + error.toString());
-
-
-                    });
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => HomeScreen()),
-                    );
+                    if(nameController.text != "" && calorieController.text != "") {
+                      FirebaseDatabase.instance.reference().child(
+                          "lunch/l" + timestamp.toString()).set(
+                          {
+                            "Name": nameController.text,
+                            "Protein": proteinController.text,
+                            "Carbohydrate": carbController.text,
+                            "fat": fatController.text,
+                            "Calorie": calorieController.text,
+                            "Weight": weightController.text,
+                          }).then((value) {
+                        print("Successfully added lunch item");
+                      }).catchError((error) {
+                        print("Failed to add. " + error.toString());
+                      });
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => HomeScreen()),
+                      );
+                    }
                   }, child: Text("Add Food")),
                 )
               ],

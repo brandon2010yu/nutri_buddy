@@ -15,6 +15,7 @@ class MondayListView extends StatefulWidget {
 class _MondayListViewState extends State<MondayListView> {
 
   var mondayList = [];
+  var mondayList2 = [];
 
   _MondayListViewState() {
     refreshBreakfastList();
@@ -29,10 +30,13 @@ class _MondayListViewState extends State<MondayListView> {
     {
       print("Successfully loaded data");
       var breakfastTmpList = [];
+      var breakfastTmpList2 = [];
       datasnapshot.value.forEach((k,v)
       {
         breakfastTmpList.add(v);
+        breakfastTmpList2.add(k);
         mondayList = breakfastTmpList;
+        mondayList2 = breakfastTmpList2;
         setState(() {
 
         });
@@ -63,43 +67,81 @@ class _MondayListViewState extends State<MondayListView> {
                 scrollDirection: Axis.vertical,
                 itemCount: mondayList.length,
                 itemBuilder: (BuildContext context,int index){
-                  return Center(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
+                  return ListTile(
+                    onLongPress: () {
+                      FirebaseDatabase.instance.reference().child("mondayworkout/" + mondayList2[index]).remove();
+                      mondayList.removeAt(index);
+                      mondayList2.removeAt(index);
 
-                      children: [
-                        Text("Workout: ",style: TextStyle(fontSize: 35),),
+                      setState(() {
 
-                        Container(
-                            margin: EdgeInsets.only(right: 10),
-                            child: Text('${mondayList[index]['Monday']}',
-                              style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold),)),
+                      });
+                    },
+                    title: Center(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+
+                        children: [
+                          Text("Workout: ",style: TextStyle(fontSize: 20),),
+
+                          Container(
+                              margin: EdgeInsets.only(right: 10),
+                              child: Text('${mondayList[index]['Monday']}',
+                                style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),)),
 
 
-                      ],
+                        ],
+                      ),
                     ),
                   );
 
                 }),
           ),
-          Container(
-            margin: EdgeInsets.only(bottom: 52, left: 20),
-            alignment: Alignment.bottomLeft,
-            child: SizedBox(
-              height: 56,
-              width: 56,
-              child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    shape: CircleBorder(),
+          Row(
+            children: [
+              Container(
+                margin: EdgeInsets.only(bottom: 52, left: 20),
+                alignment: Alignment.bottomLeft,
+                child: SizedBox(
+                  height: 56,
+                  width: 56,
+                  child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        shape: CircleBorder(),
 
-                  ),
-                  onPressed: (){
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => WorkoutScreen()),
-                    );
-                  }, child: Icon(Icons.whatshot)),
-            ),
+                      ),
+                      onPressed: (){
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => WorkoutScreen()),
+                        );
+                      }, child: Icon(Icons.whatshot)),
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.only(bottom: 52, left: 100),
+                alignment: Alignment.bottomCenter,
+                child: SizedBox(
+                  height: 56,
+                  width: 56,
+                  child: ElevatedButton(
+
+                      style: ElevatedButton.styleFrom(
+                        primary: Colors.redAccent,
+                        shape: CircleBorder(),
+
+                      ),
+                      onPressed: (){
+                        FirebaseDatabase.instance.reference().child("mondayworkout/").remove();
+                        mondayList2 = [];
+                        mondayList = [];
+                        setState(() {
+
+                        });
+                      }, child: Icon(Icons.clear)),
+                ),
+              ),
+            ],
           )
         ],
       ),

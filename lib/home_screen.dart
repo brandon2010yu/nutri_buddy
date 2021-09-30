@@ -41,6 +41,7 @@ class _HomeScreenState extends State<HomeScreen> {
       datasnapshot.value.forEach((k,v)
       {
         breakfastTmpList.add(v);
+        print(k);
 
         goalObject = breakfastTmpList;
 

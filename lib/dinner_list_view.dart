@@ -15,6 +15,7 @@ class _DinnerListViewState extends State<DinnerListView> {
 
 
   var foodList = [];
+  var foodList2 = [];
 
   _DinnerListViewState() {
     refreshBreakfastList();
@@ -29,9 +30,13 @@ class _DinnerListViewState extends State<DinnerListView> {
     {
       print("Successfully loaded data");
       var breakfastTmpList = [];
+      var breakfastTmpList2 = [];
+
       datasnapshot.value.forEach((k,v)
       {
         breakfastTmpList.add(v);
+        breakfastTmpList2.add(k);
+        foodList2 = breakfastTmpList2;
         foodList = breakfastTmpList;
         setState(() {
 
@@ -62,48 +67,86 @@ class _DinnerListViewState extends State<DinnerListView> {
                 scrollDirection: Axis.vertical,
                 itemCount: foodList.length,
                 itemBuilder: (BuildContext context,int index){
-                  return Center(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
+                  return ListTile(
+                    onLongPress: () {
+                      FirebaseDatabase.instance.reference().child("dinner/" + foodList2[index]).remove();
+                      foodList.removeAt(index);
+                      foodList2.removeAt(index);
 
-                      children: [
-                        Container(
+                      setState(() {
 
-                            child: Text("Name: ",style: TextStyle(fontSize: 30,fontStyle: FontStyle.italic),)),
-                        Container(
-                            margin: EdgeInsets.only(right: 10),
-                            child: Text('${foodList[index]['Name']}',
-                              style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold),)),
+                      });
+                    },
+                    title: Center(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
 
-                        Text("Calories: ",style: TextStyle(fontSize: 30),),
-                        Container(
-                            child: Text('${foodList[index]['Calorie']}',style: TextStyle(
-                                fontSize: 30,fontWeight: FontWeight.bold
-                            ),))
-                      ],
+                        children: [
+                          Container(
+
+                              child: Text("Name: ",style: TextStyle(fontSize: 20,fontStyle: FontStyle.italic),)),
+                          Container(
+                              margin: EdgeInsets.only(right: 10),
+                              child: Text('${foodList[index]['Name']}',
+                                style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),)),
+
+                          Text("Calories: ",style: TextStyle(fontSize: 20),),
+                          Container(
+                              child: Text('${foodList[index]['Calorie']}',style: TextStyle(
+                                  fontSize: 20,fontWeight: FontWeight.bold
+                              ),))
+                        ],
+                      ),
                     ),
                   );
 
                 }),
           ),
-          Container(
-            margin: EdgeInsets.only(bottom: 52, left: 20),
-            alignment: Alignment.bottomLeft,
-            child: SizedBox(
-              height: 56,
-              width: 56,
-              child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    shape: CircleBorder(),
+          Row(
+            children: [
+              Container(
+                margin: EdgeInsets.only(bottom: 52, left: 20),
+                alignment: Alignment.bottomLeft,
+                child: SizedBox(
+                  height: 56,
+                  width: 56,
+                  child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        shape: CircleBorder(),
 
-                  ),
-                  onPressed: (){
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => HomeScreen()),
-                    );
-                  }, child: Icon(Icons.home)),
-            ),
+                      ),
+                      onPressed: (){
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => HomeScreen()),
+                        );
+                      }, child: Icon(Icons.home)),
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.only(bottom: 52, left: 100),
+                alignment: Alignment.bottomCenter,
+                child: SizedBox(
+                  height: 56,
+                  width: 56,
+                  child: ElevatedButton(
+
+                      style: ElevatedButton.styleFrom(
+                        primary: Colors.redAccent,
+                        shape: CircleBorder(),
+
+                      ),
+                      onPressed: (){
+                        FirebaseDatabase.instance.reference().child("dinner/").remove();
+                        foodList2 = [];
+                        foodList = [];
+                        setState(() {
+
+                        });
+                      }, child: Icon(Icons.clear)),
+                ),
+              ),
+            ],
           )
         ],
       ),

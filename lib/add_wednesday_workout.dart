@@ -73,22 +73,24 @@ class _AddWednesdayWorkoutState extends State<AddWednesdayWorkout> {
                   child: ElevatedButton(onPressed: (){
 
                     var timestamp = new DateTime.now().millisecondsSinceEpoch;
-                    FirebaseDatabase.instance.reference().child("wednesdayworkout/w" + timestamp.toString()).set(
-                        {
-                          "Wednesday": wednesdayController.text,
+                    if(wednesdayController.text != "") {
+                      FirebaseDatabase.instance.reference().child(
+                          "wednesdayworkout/w" + timestamp.toString()).set(
+                          {
+                            "Wednesday": wednesdayController.text,
 
 
-                        }).then((value) {
-                      print("Successfully planned workout");
-                    }).catchError((error){
-                      print("Failed to add. " + error.toString());
-
-
-                    });
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => WorkoutScreen()),
-                    );
+                          }).then((value) {
+                        print("Successfully planned workout");
+                      }).catchError((error) {
+                        print("Failed to add. " + error.toString());
+                      });
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) =>
+                            WorkoutScreen()),
+                      );
+                    }
                   }, child: Text("Plan Workout")),
                 )
 
@@ -105,7 +107,7 @@ class _AddWednesdayWorkoutState extends State<AddWednesdayWorkout> {
               context,
               MaterialPageRoute(builder: (context) => WorkoutScreen()),
             );
-          },child: Icon(Icons.home))),
+          },child: Icon(Icons.whatshot))),
 
     );
   }
