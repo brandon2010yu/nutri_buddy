@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:nutri_buddy/login_screen.dart';
 
 
 
@@ -67,7 +68,7 @@ class _SignupScreenState extends State<SignupScreen> {
                 Container(
                   width: 200,
                   height: 65,
-                  margin: EdgeInsets.only(top: 50),
+                  margin: EdgeInsets.only(top: 20),
                   child: ElevatedButton(
                       style: ButtonStyle(
 
@@ -96,21 +97,38 @@ class _SignupScreenState extends State<SignupScreen> {
                           print("Failed to sign up");
                           print(error.toString());
                         });
-                        // Future<AuthResult> result = FirebaseAuth.instance.createUserWithEmailAndPassword(email: emailController.text, password: passwordController.text);
-                        // result.then((value) {
-                        //   print("Successfully signed up!");
-                        // });
-                        // result.catchError((error){
-                        //   print("Failed to sign up");
-                        //   print(error.toString());
-                        // });
-                        // Navigator.push(
-                        //   context,
-                        //   MaterialPageRoute(builder: (context) => UserProfile()),
-                        // );
+
 
                       },
                       child: Text('Sign Up')),
+
+                ),
+                Container(
+                  width: 200,
+                  height: 65,
+                  margin: EdgeInsets.only(top: 20),
+                  child: ElevatedButton(
+                      style: ButtonStyle(
+
+                          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                              RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(18.0),
+                                side: BorderSide(color: Colors.red),
+                              )
+
+                          )
+
+                      ),
+
+                      onPressed: (){
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => LoginScreen()),
+                        );
+
+
+                      },
+                      child: Text('Back')),
 
                 ),
 
@@ -118,25 +136,7 @@ class _SignupScreenState extends State<SignupScreen> {
               ],
             ),
           ),
-          // Expanded(
-          //   flex: 10,
-          //   child: Row(
-          //     mainAxisAlignment: MainAxisAlignment.center,
-          //     crossAxisAlignment: CrossAxisAlignment.center,
-          //     children: [
-          //       Container(
-          //           margin: EdgeInsets.only(right:20),
-          //           child: Text('App Logo')),
-          //       IconButton(
-          //         icon: Icon(Icons.book), onPressed: () {  },
-          //       ),
-          //       IconButton(
-          //         icon: Icon(Icons.computer), onPressed: () {  },
-          //       ),
-          //
-          //     ],
-          //   ),
-          // )
+
         ],
       ),
     );
