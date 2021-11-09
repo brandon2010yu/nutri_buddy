@@ -372,6 +372,20 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ],
       ),
+      floatingActionButton: Container(
+        alignment: Alignment.bottomLeft,
+        margin: EdgeInsets.only(bottom:80,left:30),
+        child: FloatingActionButton(
+          backgroundColor: Colors.deepPurpleAccent,
+
+            onPressed: (){
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => LoginScreen()),
+              );
+            }, child: Text("Logout")),
+      ),
+
 
     );
   }
