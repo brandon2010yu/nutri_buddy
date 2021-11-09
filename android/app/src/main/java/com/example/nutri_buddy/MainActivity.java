@@ -1,4 +1,4 @@
-package com.example.nutri_buddy;
+package com.byu.nutri_buddy;
 
 import io.flutter.embedding.android.FlutterActivity;
 

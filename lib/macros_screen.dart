@@ -27,7 +27,7 @@ class _MacrosScreenState extends State<MacrosScreen> {
   var dinnerF = 0;
 
   _MacrosScreenState(){
-    FirebaseDatabase.instance.reference().child("goals").once().then((datasnapshot)
+    FirebaseDatabase.instance.reference().child(uid.toString() + "/goals").once().then((datasnapshot)
     {
       print("Successfully loaded data");
       print(datasnapshot.value);
@@ -44,7 +44,7 @@ class _MacrosScreenState extends State<MacrosScreen> {
       print("failed to load data");
       print(error.toString());
     });
-    FirebaseDatabase.instance.reference().child("breakfast").once().then((datasnapshot)
+    FirebaseDatabase.instance.reference().child(uid.toString() + "/breakfast").once().then((datasnapshot)
     {
       print("Successfully loaded data");
 
@@ -62,7 +62,7 @@ class _MacrosScreenState extends State<MacrosScreen> {
       print("failed to load data");
       print(error.toString());
     });
-    FirebaseDatabase.instance.reference().child("lunch").once().then((datasnapshot)
+    FirebaseDatabase.instance.reference().child(uid.toString() + "/lunch").once().then((datasnapshot)
     {
 
       print("Successfully loaded data");
@@ -80,7 +80,7 @@ class _MacrosScreenState extends State<MacrosScreen> {
       print("failed to load data");
       print(error.toString());
     });
-    FirebaseDatabase.instance.reference().child("dinner").once().then((datasnapshot)
+    FirebaseDatabase.instance.reference().child(uid.toString() + "/dinner").once().then((datasnapshot)
     {
       print("Successfully loaded data");
 

@@ -167,8 +167,8 @@ class _AddLunchScreenState extends State<AddLunchScreen> {
                   child: ElevatedButton(onPressed: (){
                     var timestamp = new DateTime.now().millisecondsSinceEpoch;
                     if(nameController.text != "" && calorieController.text != "") {
-                      FirebaseDatabase.instance.reference().child(
-                          "lunch/l" + timestamp.toString()).set(
+                      FirebaseDatabase.instance.reference().child(uid.toString() +
+                          "/lunch/l" + timestamp.toString()).set(
                           {
                             "Name": nameController.text,
                             "Protein": proteinController.text,

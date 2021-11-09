@@ -74,8 +74,8 @@ class _AddMondayWorkoutState extends State<AddMondayWorkout> {
 
                     var timestamp = new DateTime.now().millisecondsSinceEpoch;
                     if(mondayController.text != "") {
-                      FirebaseDatabase.instance.reference().child(
-                          "mondayworkout/w" + timestamp.toString()).set(
+                      FirebaseDatabase.instance.reference().child(uid.toString() +
+                          "/mondayworkout/w" + timestamp.toString()).set(
                           {
                             "Monday": mondayController.text,
 

@@ -18,14 +18,14 @@ class _LunchListViewState extends State<LunchListView> {
 
   _LunchListViewState() {
     refreshBreakfastList();
-    FirebaseDatabase.instance.reference().child("lunch").onChildChanged.listen((event) {
+    FirebaseDatabase.instance.reference().child(uid.toString() + "/lunch").onChildChanged.listen((event) {
       print("data changed");
       refreshBreakfastList();
     });
   }
 
   void refreshBreakfastList(){
-    FirebaseDatabase.instance.reference().child("lunch").once().then((datasnapshot)
+    FirebaseDatabase.instance.reference().child(uid.toString() + "/lunch").once().then((datasnapshot)
     {
       print("Successfully loaded data");
       var breakfastTmpList = [];
@@ -68,7 +68,7 @@ class _LunchListViewState extends State<LunchListView> {
                 itemBuilder: (BuildContext context,int index){
                   return ListTile(
                     onLongPress: () {
-                      FirebaseDatabase.instance.reference().child("lunch/" + foodList2[index]).remove();
+                      FirebaseDatabase.instance.reference().child(uid.toString() + "/lunch/" + foodList2[index]).remove();
                       foodList.removeAt(index);
                       foodList2.removeAt(index);
 
@@ -155,7 +155,7 @@ class _LunchListViewState extends State<LunchListView> {
 
                       ),
                       onPressed: (){
-                        FirebaseDatabase.instance.reference().child("lunch/").remove();
+                        FirebaseDatabase.instance.reference().child(uid.toString() + "/lunch/").remove();
                         foodList2 = [];
                         foodList = [];
                         setState(() {

@@ -19,14 +19,14 @@ class _ThursdayListViewState extends State<ThursdayListView> {
 
   _ThursdayListViewState() {
     refreshBreakfastList();
-    FirebaseDatabase.instance.reference().child("thursdayworkout").onChildChanged.listen((event) {
+    FirebaseDatabase.instance.reference().child(uid.toString() + "/thursdayworkout").onChildChanged.listen((event) {
       print("data changed");
       refreshBreakfastList();
     });
   }
 
   void refreshBreakfastList(){
-    FirebaseDatabase.instance.reference().child("thursdayworkout").once().then((datasnapshot)
+    FirebaseDatabase.instance.reference().child(uid.toString() + "/thursdayworkout").once().then((datasnapshot)
     {
       print("Successfully loaded data");
       var breakfastTmpList = [];
@@ -68,7 +68,7 @@ class _ThursdayListViewState extends State<ThursdayListView> {
                 itemBuilder: (BuildContext context,int index){
                   return ListTile(
                     onLongPress: () {
-                      FirebaseDatabase.instance.reference().child("thursdayworkout/" + thursdayList2[index]).remove();
+                      FirebaseDatabase.instance.reference().child(uid.toString() + "/thursdayworkout/" + thursdayList2[index]).remove();
                       thursdayList.removeAt(index);
                       thursdayList2.removeAt(index);
 
@@ -133,7 +133,7 @@ class _ThursdayListViewState extends State<ThursdayListView> {
 
                       ),
                       onPressed: (){
-                        FirebaseDatabase.instance.reference().child("thursdayworkout/").remove();
+                        FirebaseDatabase.instance.reference().child(uid.toString() + "/thursdayworkout/").remove();
                         thursdayList2 = [];
                         thursdayList = [];
                         setState(() {

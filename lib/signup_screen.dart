@@ -67,8 +67,8 @@ class _SignupScreenState extends State<SignupScreen> {
 
                 Container(
                   width: 200,
-                  height: 65,
-                  margin: EdgeInsets.only(top: 20),
+                  height: 60,
+                  margin: EdgeInsets.only(top: 15),
                   child: ElevatedButton(
                       style: ButtonStyle(
 
@@ -105,8 +105,8 @@ class _SignupScreenState extends State<SignupScreen> {
                 ),
                 Container(
                   width: 200,
-                  height: 65,
-                  margin: EdgeInsets.only(top: 20),
+                  height: 60,
+                  margin: EdgeInsets.only(top: 15),
                   child: ElevatedButton(
                       style: ButtonStyle(
 

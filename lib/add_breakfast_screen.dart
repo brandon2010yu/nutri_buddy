@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 
@@ -168,8 +169,8 @@ class _AddBreakfastScreenState extends State<AddBreakfastScreen> {
                   child: ElevatedButton(onPressed: (){
                     var timestamp = new DateTime.now().millisecondsSinceEpoch;
                     if(nameController.text != "" && calorieController.text != "") {
-                      FirebaseDatabase.instance.reference().child(
-                          "breakfast/b" + timestamp.toString()).set(
+                      FirebaseDatabase.instance.reference().child(uid.toString() +
+                          "/breakfast/b" + timestamp.toString()).set(
                           {
                             "Name": nameController.text,
                             "Protein": proteinController.text,

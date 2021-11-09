@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:nutri_buddy/workout_screen.dart';
@@ -13,12 +14,17 @@ class GoalsScreen extends StatefulWidget {
   _GoalsScreenState createState() => _GoalsScreenState();
 }
 
+
+
 class _GoalsScreenState extends State<GoalsScreen> {
 
   var calorieController = TextEditingController();
   var proteinController = TextEditingController();
   var carbController = TextEditingController();
   var fatController = TextEditingController();
+
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -136,7 +142,7 @@ class _GoalsScreenState extends State<GoalsScreen> {
                         print(calorieController.text);
                         if(calorieController.text != "" && proteinController.text != "" && carbController.text != "" && fatController.text != "")
                           {
-                        FirebaseDatabase.instance.reference().child("goals/g001").set(
+                        FirebaseDatabase.instance.reference().child(uid.toString() +  "/goals/g001").set(
                             {
                               "Calorie": calorieController.text,
                               "Protein": proteinController.text,

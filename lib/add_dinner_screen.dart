@@ -169,8 +169,8 @@ class _AddDinnerScreenState extends State<AddDinnerScreen> {
                   child: ElevatedButton(onPressed: (){
                     var timestamp = new DateTime.now().millisecondsSinceEpoch;
                     if(nameController.text != "" && calorieController.text != "") {
-                      FirebaseDatabase.instance.reference().child(
-                          "dinner/d" + timestamp.toString()).set(
+                      FirebaseDatabase.instance.reference().child(uid.toString() +
+                          "/dinner/d" + timestamp.toString()).set(
                           {
                             "Name": nameController.text,
                             "Protein": proteinController.text,

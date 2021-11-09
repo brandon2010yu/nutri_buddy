@@ -1,4 +1,5 @@
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:nutri_buddy/add_breakfast_screen.dart';
@@ -22,6 +23,9 @@ class HomeScreen extends StatefulWidget {
   _HomeScreenState createState() => _HomeScreenState();
 }
 
+final FirebaseAuth auth = FirebaseAuth.instance;
+final User? user = auth.currentUser;
+final uid = user!.uid;
 class _HomeScreenState extends State<HomeScreen> {
   var breakfastCalorie;
   var lunchCalorie;
@@ -32,7 +36,7 @@ class _HomeScreenState extends State<HomeScreen> {
   var dinnerC = 0;
 
   _HomeScreenState(){
-    FirebaseDatabase.instance.reference().child("goals").once().then((datasnapshot)
+    FirebaseDatabase.instance.reference().child(uid.toString() + "/goals").once().then((datasnapshot)
     {
       print("Successfully loaded data");
       print(datasnapshot.value);
@@ -53,7 +57,7 @@ class _HomeScreenState extends State<HomeScreen> {
       print("failed to load data");
       print(error.toString());
     });
-    FirebaseDatabase.instance.reference().child("breakfast").once().then((datasnapshot)
+    FirebaseDatabase.instance.reference().child(uid.toString() + "/breakfast").once().then((datasnapshot)
     {
       print("Successfully loaded data");
 
@@ -80,7 +84,7 @@ class _HomeScreenState extends State<HomeScreen> {
       print("failed to load data");
       print(error.toString());
     });
-    FirebaseDatabase.instance.reference().child("lunch").once().then((datasnapshot)
+    FirebaseDatabase.instance.reference().child(uid.toString() + "/lunch").once().then((datasnapshot)
     {
       print("Successfully loaded data");
 
@@ -101,7 +105,7 @@ class _HomeScreenState extends State<HomeScreen> {
       print("failed to load data");
       print(error.toString());
     });
-    FirebaseDatabase.instance.reference().child("dinner").once().then((datasnapshot)
+    FirebaseDatabase.instance.reference().child(uid.toString() + "/dinner").once().then((datasnapshot)
     {
       print("Successfully loaded data");
 
